@@ -1,0 +1,50 @@
+body {
+    background-color: #000;
+    color: #0ff;
+    font-family: 'Orbitron', sans-serif; /* A futuristic font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+#hud-container {
+    border: 2px solid #0ff;
+    padding: 2rem;
+    box-shadow: 0 0 20px #0ff;
+    background-color: rgba(0, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    text-align: center;
+}
+
+.hud-element {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#progress-button {
+    position: absolute;
+    bottom: 2rem;
+    background-color: #0ff;
+    color: #000;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 0 10px #0ff;
+    transition: all 0.3s ease;
+}
+
+#progress-button:hover {
+    background-color: #fff;
+    box-shadow: 0 0 20px #fff;
+}```
+*To use the 'Orbitron' font, you'll need to import it from Google Fonts by adding the following line to the top of your CSS file:*
+```css
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');

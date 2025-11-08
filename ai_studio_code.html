@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.A.R.V.I.S. Simulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="hud-container">
+        <div id="boot-sequence" class="hud-element">
+            <p>SYSTEM BOOTING...</p>
+        </div>
+        <div id="diagnostics" class="hud-element" style="display: none;">
+            <p>RUNNING DIAGNOSTICS...</p>
+            <ul>
+                <li>ARC REACTOR: STABLE</li>
+                <li>WEAPONS SYSTEMS: ONLINE</li>
+                <li>FLIGHT SYSTEMS: READY</li>
+            </ul>
+        </div>
+        <div id="welcome-message" class="hud-element" style="display: none;">
+            <p>"Good evening, sir."</p>
+        </div>
+        <div id="combat-mode" class="hud-element" style="display: none;">
+            <p>COMBAT MODE ENGAGED</p>
+        </div>
+    </div>
+    <button id="progress-button">INITIATE</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
