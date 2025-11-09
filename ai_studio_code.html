@@ -4,23 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>youownanairfryer.com</title>
-    
-    <!-- Link to Google Fonts for 'Orbitron' -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-    
-    <!-- Link to your CSS file -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ai_studio_code.css">
 </head>
 <body>
+    
+<div id="initial-interface">
     <div class="container">
-        <h1>youownanairfryer.com</h1>
-        <p class="tagline">Welcome to youownanairfyer.com, the only website where you own an air fryer.</p>
-        <button id="beginButton">BEGIN</button>
+        <h1>youownanairfryer.vip</h1>
+        <p class="tagline">
+            Welcome to You Own an Air Fryer dot VIP:<br>
+            The only website where YOU own an air fryer.
+        </p>
+        <button id="beginButton">BEGIN YOUR VIP AIR FRYER EXPERIENCE</button>
+    </div>
+</div>
+
+<div id="hud-container">
+    <div class="hud-element top-left-bracket"></div>
+    <div class="hud-element top-right-bracket"></div>
+    <div class="hud-element bottom-left-bracket"></div>
+    <div class="hud-element bottom-right-bracket"></div>
+    <div class="hud-element circle-1"></div>
+    <div class="hud-element circle-2"></div>
+    <div class="hud-element circle-3"></div>
+    <div class="hud-element data-stream-1">HEALTH STATUS: HUNGOVER</div>
+    <div class="hud-element data-stream-2">POWER: 17%</div>
+    <div class="hud-element target-display">
+        <span>AIR FRYER SYSTEM: OFFLINE</span>
     </div>
 
-    <audio id="bootSound" src="boot-sound.mp3"></audio>
+    <button id="getUpButton" class="hud-button">GET UP</button>
+    <button id="approachMirrorButton" class="hud-button">APPROACH MIRROR</button>
+</div>
 
-    <!-- Link to your JavaScript file - IMPORTANT: Place this at the end of the body -->
-    <script src="script.js"></script>
+<div id="background-image-container"></div>
+
+<audio id="bootSound" src="boot-sound.mp3"></audio>
+<audio id="computerSound" src="oldcomputerbootingup-16979.mp3"></audio>
+<audio id="footstepsSound" src="footsteps.mp3"></audio>
+<audio id="jarvisbathroom1" src="jarvisbathroom1.mp3"></audio>
+<audio id="jarvisbathroom2" src="jarvisbathroom2.mp3"></audio>
+<audio id="jarvisbathroom3" src="jarvisbathroom3.mp3"></audio>
+<audio id="boomSound" src="boom.mp3"></audio>
+<audio id="jarviskitchen1" src="jarviskitchen1.mp3"></audio>
+<audio id="jarviskitchen2" src="jarviskitchen2.mp3"></audio>
+<audio id="jarvisWelcome" src="jarviswelcome.mp3"></audio>
+
+<script src="ai_studio_code.js"></script>
 </body>
 </html>

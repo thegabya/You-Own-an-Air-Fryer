@@ -1,55 +1,90 @@
 body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background-color: #000000; /* Pure black background */
-    color: #00ffff; /* Light cyan/blue for text */
-    font-family: 'Orbitron', sans-serif; /* Futuristic font */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: hidden; /* Hide any potential scrollbars */
+    margin: 0; padding: 0; height: 100%; background-color: #000000; color: #00ffff;
+    font-family: 'Orbitron', sans-serif; display: flex; justify-content: center;
+    align-items: center; text-align: center; overflow: hidden; box-sizing: border-box; padding: 15px;
 }
 
-.container {
-    max-width: 800px;
-    padding: 20px;
-}
-
-h1 {
-    font-size: 4em;
-    margin-bottom: 0.3em;
-    text-shadow: 0 0 8px #00ffff, 0 0 16px #00ffff;
-    letter-spacing: 5px;
-}
-
-.tagline {
-    font-size: 1.3em;
-    margin-bottom: 2em;
-    color: #00cccc;
-    text-shadow: 0 0 5px #00cccc;
-}
-
+#initial-interface { transition: opacity 1s ease-in-out; position: relative; z-index: 20; }
+#initial-interface.fade-out { opacity: 0; pointer-events: none; }
+.container { max-width: 800px; padding: 20px; }
+h1 { font-size: 3em; letter-spacing: 3px; margin-bottom: 0.3em; text-shadow: 0 0 8px #00ffff, 0 0 16px #00ffff; word-break: break-all; }
+.tagline { font-size: 1.2em; color: #00cccc; text-shadow: 0 0 5px #00cccc; }
 #beginButton {
-    padding: 15px 40px;
-    font-size: 1.8em;
-    background-color: transparent;
-    border: 3px solid #00ffff;
-    color: #00ffff;
-    cursor: pointer;
-    transition: all 0.4s ease-in-out;
-    text-shadow: 0 0 10px #00ffff;
-    letter-spacing: 3px;
-    border-radius: 5px;
-    outline: none;
-    font-family: 'Orbitron', sans-serif; /* Ensure button uses the font */
+    padding: 15px 40px; font-size: 1.2em; background-color: transparent; border: 3px solid #00ffff;
+    color: #00ffff; cursor: pointer; transition: all 0.4s ease-in-out; text-shadow: 0 0 10px #00ffff;
+    letter-spacing: 3px; border-radius: 5px; outline: none; font-family: 'Orbitron', sans-serif; margin-top: 2em;
+}
+#beginButton:hover { background-color: #00ffff; color: #000000; text-shadow: none; box-shadow: 0 0 15px #00ffff, 0 0 25px #00ffff; }
+
+#hud-container {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0;
+    transition: opacity 1s ease-in-out; pointer-events: none; z-index: 10;
+}
+#hud-container.visible { opacity: 1; pointer-events: auto; }
+
+@keyframes flicker-in {
+    0% { opacity: 0; } 20% { opacity: 0; text-shadow: none; }
+    40% { opacity: 1; text-shadow: 0 0 10px #00ffff; }
+    60% { opacity: 0; } 100% { opacity: 0.75; text-shadow: 0 0 8px #00ffff, 0 0 12px #00ffff; }
+}
+@keyframes flicker-glow-red {
+  0%, 100% { color: #ff8080; text-shadow: 0 0 7px #ff1a1a, 0 0 12px #ff1a1a; }
+  50% { color: #ffffff; text-shadow: 0 0 10px #ff1a1a, 0 0 25px #ff1a1a, 0 0 40px #d10000; }
 }
 
-#beginButton:hover,
-#beginButton:focus {
-    background-color: #00ffff;
-    color: #000000;
-    text-shadow: none;
-    box-shadow: 0 0 15px #00ffff, 0 0 25px #00ffff;
+#hud-container.booting-up .hud-element { animation: flicker-in 2.5s forwards; }
+
+.hud-element { position: absolute; border-color: #00ffff;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.7), inset 0 0 4px rgba(0, 255, 255, 0.5); opacity: 0; }
+.top-left-bracket { top: 30px; left: 30px; width: 100px; height: 100px; border-top: 2px solid; border-left: 2px solid; animation-delay: 1s !important; }
+.top-right-bracket { top: 30px; right: 30px; width: 100px; height: 100px; border-top: 2px solid; border-right: 2px solid; animation-delay: 1s !important; }
+.bottom-left-bracket { bottom: 30px; left: 30px; width: 100px; height: 100px; border-bottom: 2px solid; border-left: 2px solid; animation-delay: 1.5s !important; }
+.bottom-right-bracket { bottom: 30px; right: 30px; width: 100px; height: 100px; border-bottom: 2px solid; border-right: 2px solid; animation-delay: 1.5s !important; }
+.circle-1 { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 460px; height: 460px; border: 1px solid; border-radius: 50%; animation-delay: 3s !important; }
+.circle-2 { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 518px; height: 518px; border: 1px dashed; border-radius: 50%; animation-delay: 5s !important; }
+.circle-3 { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 575px; height: 575px; border: 1px solid rgba(0, 255, 255, 0.5); border-radius: 50%; animation-delay: 7s !important; }
+
+.data-stream-1, .data-stream-2 { color: #ff8080; }
+.data-stream-1 { top: 40px; left: 150px; font-size: 1.2em; animation-delay: 9s !important; }
+.data-stream-2 { top: 70px; left: 150px; font-size: 1.2em; animation-delay: 11s !important; }
+
+#hud-container.booting-up .data-stream-1,
+#hud-container.booting-up .data-stream-2 {
+    animation: flicker-in 2.5s forwards, flicker-glow-red 4s ease-in-out infinite;
 }
+
+.target-display {
+    bottom: 50px; text-align: center; width: 100%; left: 0; font-size: 1.5em;
+    color: #ff8080; text-shadow: 0 0 7px #ff1a1a, 0 0 12px #ff1a1a;
+    animation-delay: 15s !important;
+}
+/* .target-box rule removed to delete the red square from the HUD */
+
+.hud-button {
+    position: absolute; bottom: 30px; right: 30px; padding: 10px 20px; font-size: 1.2em;
+    font-family: 'Orbitron', sans-serif; background-color: white; color: black; border: 2px solid #00ffff;
+    border-radius: 5px; cursor: pointer; box-shadow: 0 0 15px #ffffff;
+    opacity: 0; pointer-events: none; transition: opacity 0.5s ease-in-out;
+}
+.hud-button.visible { opacity: 1; pointer-events: auto; }
+.hud-button:hover { background-color: #00ffff; }
+
+#background-image-container {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('tonysbedroom.jpg');
+    background-size: cover; background-position: center center; background-repeat: no-repeat;
+    z-index: 1; opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s linear;
+    transform-origin: center bottom;
+}
+
+#hud-container.booting-up ~ #background-image-container {
+    animation: fadeInBackground 12s ease-in forwards;
+    animation-delay: 3s;
+}
+@keyframes fadeInBackground {
+    from { opacity: 0; transform: scale(1.05); }
+    to { opacity: 1; }
+}
+#background-image-container.visible { opacity: 1; }
+#background-image-container.fade-out { opacity: 0; }
